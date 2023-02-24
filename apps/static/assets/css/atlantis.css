@@ -4431,7 +4431,7 @@ label.error {
     border-color: #48ABF7 !important; }
 
 .btn-success {
-  background: #31CE36 !important;
+  background: fuchsia !important;
   border-color: #31CE36 !important; }
   .btn-success:hover, .btn-success:focus, .btn-success:disabled {
     background: #31CE36 !important;
