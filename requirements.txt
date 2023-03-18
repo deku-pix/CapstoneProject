@@ -8,7 +8,9 @@ django-debug-toolbar==3.5.0
 django-dotenv==1.4.2
 django-money==3.0.0
 django-storages==1.13.1
+django-simple-history==3.3.0
 pipenv==2022.6.7
+Pillow==9.4.0
 virtualenv==20.14.1
 virtualenv-clone==0.5.7
 whitenoise==6.2.0

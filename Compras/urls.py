@@ -7,8 +7,7 @@ urlpatterns = [
 
     path('', ComprasView, name='compra'),
     path('AddCompra', AddCompra, name='addcompra'),
-    path('eliminarcompra/<compra_id>',
-         EliminarCompra, name='eliminarcompra'),
+    path('eliminarcompra/<compra_id>',EliminarCompra, name='eliminarcompra'),
     path('EditarCompra/<compra_id>', EditarCompra, name='editarcompra'),
 
 
