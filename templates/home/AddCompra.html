@@ -48,7 +48,7 @@
             ><i class="fa-solid fa-arrow-left fa-fw"></i>&nbsp;Volver a
             Compras</a
           >
-          <a class="btn btn-secondary" href="/comprasAddCompra"
+          <a class="btn btn-secondary" href="{% url 'addcompra' %}"
             ><i class="fa-solid fa-square-plus fa-fw"></i>&nbsp;Crear Nueva
             Compra</a
           >
@@ -69,11 +69,7 @@
 
           <br />
           <div class="d-flex justify-content-center">
-            <input
-              type="Submit"
-              value="Crear Compra"
-              class="btn btn-secondary"
-            />
+            <input type="Submit" value="Crear Compra" class="btn btn-secondary"/>
           </div>
           <br />
         </form>

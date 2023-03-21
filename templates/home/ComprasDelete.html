@@ -13,7 +13,7 @@
           <h2 class="text-white pb-2 fw-bold">DEPO</h2>
         </div>
         <div class="ml-md-auto py-2 py-md-0">
-          <a href="/comprasAddCompra" class="btn btn-secondary btn-round"
+          <a href="{% url 'addcompra' %}" class="btn btn-secondary btn-round"
             >Añadir compra</a
           >
         </div>
@@ -40,7 +40,7 @@
                     font-size: xx-large;
                   "
                 >
-                  ¿Eliminar caso? {{compras.num_compra}}?
+                  ¿Eliminar caso? {{num_compra}}?
                 </h1>
 
                 <div>

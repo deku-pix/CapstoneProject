@@ -7,6 +7,7 @@
 
 {% block content %}
 
+<!DOCTYPE html>
 <div class="content">
     <div class="panel-header bg-primary-gradient">
         <div class="page-inner py-5">
@@ -17,7 +18,7 @@
                 </div>
                 <div class="ml-md-auto py-2 py-md-0">
                     <a href="#" class="btn btn-white btn-border btn-round mr-2">Filtro</a>
-                    <a href="/comprasAddCompra" class="btn btn-secondary btn-round">Añadir Compra</a>
+                    <a href="{% url 'addcompra' %}" class="btn btn-secondary btn-round">Añadir Compra</a>
                 </div>
             </div>
         </div>
@@ -59,9 +60,8 @@
                     </div>
                     <div class="float-right pt-1">
                         <small style = "margin-right: 20px;" class="text-muted">{{x.estatus}}</small>
-                        <a  style="float: right;" href="/compraseliminarcompra/{{x.compra_id}}"><i
-                                                            class="fas fa-trash"></i></a>
-                        <a style="float: right; margin-right: 20px;" href="/compraseditarcompra/{{x.compra_id}}"><i
+                        <a  style="float: right;" href="{% url 'eliminarcompra' x.compra_id %}"><i class="fas fa-trash"></i></a>
+                        <a style="float: right; margin-right: 20px;" href="{% url 'editarcompra' x.compra_id %}"><i
                                                             class="fas fa-pen"></i></a>
                     </div>
                 </div>
@@ -176,5 +176,4 @@
         fillColor: 'rgba(255, 165, 52, .14)'
     });
 </script>
-
 {% endblock javascripts %}
