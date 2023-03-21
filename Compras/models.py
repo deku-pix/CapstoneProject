@@ -831,7 +831,7 @@ assigment=(
 )
 class Compra(models.Model):
 
-    agencia_id = models.CharField(max_length=200, unique=True, default=uuid.uuid4)
+    compra_id = models.CharField(max_length=200, unique=True, default=uuid.uuid4)
     id_agencia = models.CharField(max_length=30, blank=False)
     metodo = models.CharField(max_length=1000, choices=method_type, default=('-','-'), blank=False)
     objeto = models.CharField(max_length=30,choices=objectType, default=('-','-'), blank=False)
@@ -849,8 +849,8 @@ class Compra(models.Model):
     procedencia = models.CharField(max_length=1000, blank=False)
     proveedor = models.CharField(max_length=1000, blank=False)
     cuenta = models.CharField(max_length=255, blank=False)
-    alerta = models.BooleanField(blank=False, default='False')
-    alerta = models.BooleanField(blank=False, default='False')
+    #alerta = models.BooleanField(blank=False, default='False')
+    #alerta = models.BooleanField(blank=False, default='False')
     fecha_reporte = models.DateField(blank=True)
     #fecha_adjudicacion = models.DateField(blank=False)
     fecha_recibo = models.DateField(blank=True)

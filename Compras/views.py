@@ -1,5 +1,3 @@
-from django.shortcuts import render
-
 # Create your views here.
 from django.shortcuts import render
 from django.http import HttpResponse
@@ -14,7 +12,7 @@ from datetime import date
 
 Compras = []
 
-
+#aqui esta funcion permite a~adir la compra
 def AddCompra(request):
 
     submitted = False
@@ -27,9 +25,11 @@ def AddCompra(request):
             f = form.save(commit=False)
             f.usuario = usuario
             f.save()
-
-        messages.success(request, "Se añadió un nuevo comunicado.")
-        return HttpResponseRedirect('comprasAddCompra?submitted=True')
+        
+        mensaje = ("Se creo la compra") #mensaje para indicar que se cero la compra
+        messages.success(request, mensaje)
+        submitted = True
+        return render(request, 'home/AddCompra.html', {'form': form, 'submitted': submitted})
 
     else:
         form = CompraForm()
@@ -45,9 +45,9 @@ def ComprasView(request):
 
     return render(request, 'home/Compras.html', context)
 
-
+#permite editar la compra, los campos connectados no aplican para client
 def EditarCompra(request, compra_id):
-    submitted = False
+    """submitted = False
     if request.method == "POST":
 
         form = CompraForm(request.POST)
@@ -69,7 +69,7 @@ def EditarCompra(request, compra_id):
         procedencia = request.POST['procedencia']
         proveedor = request.POST['proveedor']
         cuenta = request.POST['cuenta']
-        alerta = request.POST['alerta']
+        #alerta = request.POST['alerta']
 
         # Fecha de reporte
         
@@ -78,9 +78,9 @@ def EditarCompra(request, compra_id):
         fecha_reporte_day = request.POST.get('fecha_reporte_day')
 
         # Fecha adjudicacion
-        fecha_adjudicacion_day = request.POST.get('fecha_adjudicacion_day')
+        '''fecha_adjudicacion_day = request.POST.get('fecha_adjudicacion_day')
         fecha_adjudicacion_month = request.POST.get('fecha_adjudicacion_month')
-        fecha_adjudicacion_year = request.POST.get('fecha_adjudicacion_year')
+        fecha_adjudicacion_year = request.POST.get('fecha_adjudicacion_year')'''
 
         # Fecha reporte
         fecha_reporte_day = request.POST.get('fecha_reporte_day')
@@ -106,19 +106,19 @@ def EditarCompra(request, compra_id):
         compra.procedencia = procedencia
         compra.proveedor = proveedor
         compra.cuenta = cuenta
-        compra.alerta = alerta
+        #compra.alerta = alerta
 
         compra.fecha_reporte = compra.fecha_reporte.replace(day=int(
             fecha_reporte_day), month=int(fecha_reporte_month), year=int(fecha_reporte_year))
 
-        compra.fecha_adjudicacion = compra.fecha_adjudicacion.replace(day=int(
-            fecha_adjudicacion_day), month=int(fecha_adjudicacion_month), year=int(fecha_adjudicacion_year))
+        '''compra.fecha_adjudicacion = compra.fecha_adjudicacion.replace(day=int(
+            fecha_adjudicacion_day), month=int(fecha_adjudicacion_month), year=int(fecha_adjudicacion_year))'''
 
         compra.fecha_reporte = compra.fecha_reporte.replace(day=int(
             fecha_reporte_day), month=int(fecha_reporte_month), year=int(fecha_reporte_year))
 
         compra.save()
-        message = ('La compra se enmendó ')
+        message = ('La compra se editó ')
         messages.success(request, message)
         submitted = True
         return render(request, 'home/ComprasEdit.html', {'compra': compra, 'submitted': submitted})
@@ -127,16 +127,46 @@ def EditarCompra(request, compra_id):
         compra = Compra.objects.get(compra_id=compra_id)
         form = CompraForm(request.POST or None, instance=compra)
 
-        return render(request, 'home/ComprasEdit.html', {'form': form, 'compra': compra, 'submitted': submitted})
+        return render(request, 'home/ComprasEdit.html', {'form': form, 'compra': compra, 'submitted': submitted})"""
+    
+    compra = Compra.objects.get(compra_id = compra_id)
+    form = CompraForm(instance=compra)
+
+    if request.method == 'POST':
+        form = CompraForm(request.POST, instance=compra)
+        if form.is_valid():
+            form.save()
+            return redirect('/compras')
+    else:
+        form = CompraForm(instance=compra)
+
+    return render(request, 'home/ComprasEdit.html', {'form': form})
 
 
-def EliminarCompra(request, compra_id=None):
+#esto elimina la compra
+def EliminarCompra(request, compra_id):
 
-    compra = Compra.objects.get(compra_id=compra_id)
+    compra = Compra.objects.get(compra_id = compra_id)
     if request.method == 'POST':
 
         compra.delete()
 
         return redirect('/compras')
 
-    return render(request, 'templates/home/ComprasDelete.html', {'compra': compra})
+    return render(request, 'home/ComprasDelete.html', {'compra': compra})
+
+
+#intento de a~adir partida
+def AddPartida(request, compra_id):
+    compra = Compra.objects.get(compra_id = compra_id)
+    form = CompraForm(instance=compra)
+
+    if request.method == 'POST':
+        form = CompraForm(request.POST, instance=compra)
+        if form.is_valid():
+            form.save()
+            return redirect('/compras')
+    else:
+        form = CompraForm(instance=compra)
+
+    return render(request, 'home/ComprasEdit.html', {'form': form})

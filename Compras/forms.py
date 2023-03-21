@@ -9,29 +9,29 @@ class CompraForm(ModelForm):
         model = Compra
         fields = ('id_agencia', 'metodo', 'objeto', 'fecha_reporte', 'fecha_recibo', 'num_licitador',
                   'comentarios', 'comprador', 'num_compra', 'concepto', 'cantidad', 'fondos', 'descripcion', 
-                  'id_comprador', 'asignacion', 'procedencia', 'proveedor', 'cuenta', 'alerta', 'alerta')
+                  'id_comprador', 'asignacion', 'procedencia', 'proveedor', 'cuenta')
 
         labels = {
-            'id_agencia': 'ID Agencia',
-            'metodo': 'Metodo',
-            'objeto': 'Objeto',
-            'num_licitador': 'num Licitador:',
-            'comentarios': 'Comentarios',
-            'fecha_reporte': 'Fecha Reporte',
+            'id_agencia': 'id_agencia',
+            'metodo': 'metodo',
+            'objeto': 'objeto',
+            'num_licitador': 'num_licitador:',
+            'comentarios': 'comentarios',
+            'fecha_reporte': 'fecha_reporte',
             #'fecha_adjudicacion': 'Fecha Final',
             'num_compra': 'Numero de Compra',
             'cantidad': 'Cantidad Total de Gastos $',
-            'fondos': 'Fondos',
-            'descripcion': 'Descripcion',
+            'fondos': 'fondos',
+            'descripcion': 'descripcion',
             'id_comprador': 'Comprador',
             #'num_reporte': 'num_reporte',
-            'asignacion': 'Asignacion',
-            'procedencia': 'Procedencia',
-            'proveedor': 'Proveedor',
-            'cuenta': 'Cuenta',
-            'comprador': 'Comprador',
-            'alerta': 'Estatal',
-            'alerta': 'Federal',
+            'asignacion': 'asignacion',
+            'procedencia': 'procedencia',
+            'proveedor': 'proveedor',
+            'cuenta': 'cuenta',
+            'comprador': 'comprador',
+            #'alerta': 'Estatal',
+            #'alerta': 'Federal',
             'fecha_recibo': 'Fecha Recibo'
         }
         
@@ -62,3 +62,8 @@ class CompraForm(ModelForm):
 
 
         }
+
+
+
+#autodate
+#duplicate compras 
