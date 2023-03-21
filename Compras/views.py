@@ -9,7 +9,7 @@ from django.shortcuts import redirect
 
 from datetime import date
 # Create your views here.
-
+#verifico github
 Compras = []
 
 #aqui esta funcion permite a~adir la compra
