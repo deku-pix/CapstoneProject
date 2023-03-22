@@ -14,7 +14,6 @@ Compras = []
 
 #aqui esta funcion permite a~adir la compra
 def AddCompra(request):
-
     submitted = False
     if request.method == "POST":
         form = CompraForm(request.POST, request.FILES)
@@ -38,7 +37,7 @@ def AddCompra(request):
 
     return render(request, 'home/AddCompra.html', {'form': form, 'submitted': submitted})
 
-
+############################################################
 def ComprasView(request):
     compras = Compra.objects.order_by('id_agencia')
     context = {'compras': compras}

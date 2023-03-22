@@ -839,7 +839,7 @@ class Compra(models.Model):
     comentarios = models.CharField(max_length=1000, blank=False)
     comprador = models.CharField(max_length=1000, blank=False)
     num_compra = models.CharField(max_length=1000, blank=False)
-    concepto = models.CharField(max_length=1000, choices=descriptionAssign, default=('',''), blank=False)
+    concepto = models.CharField(max_length=1000, choices=descriptionAssign, blank=False)
     cantidad = models.CharField(max_length=1000, blank=False)
     fondos = models.CharField(max_length=1000, choices=type_founds, default=('',''), blank=False)#this
     descripcion = models.CharField(max_length=1000, choices=description, default=('',''), blank=False)
@@ -851,9 +851,9 @@ class Compra(models.Model):
     cuenta = models.CharField(max_length=255, blank=False)
     #alerta = models.BooleanField(blank=False, default='False')
     #alerta = models.BooleanField(blank=False, default='False')
-    fecha_reporte = models.DateField(blank=True)
+    fecha_reporte = models.DateField(blank=False)
     #fecha_adjudicacion = models.DateField(blank=False)
-    fecha_recibo = models.DateField(blank=True)
+    fecha_recibo = models.DateField(blank=False)
     
     def __str__(self):
         return self.num_compra

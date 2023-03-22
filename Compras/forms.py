@@ -43,7 +43,7 @@ class CompraForm(ModelForm):
             'comentarios': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Inserte comentarios.', 'style': 'margin-top:10px'}),
             'comprador': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Inserte comprador.', 'style': 'margin-top:10px'}),
             'num_compra': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Inserte numero de compra.', 'style': 'margin-top:10px'}),
-            'concepto': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Concepto de compra.', 'style': 'margin-top:10px'}),
+            'concepto': forms.Select(attrs={'class': 'form-control', 'placeholder': 'Concepto de compra.', 'style': 'margin-top:10px'}),
             'cantidad': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Total de Gastos', 'style': 'margin-top:10px'}),
             'fondos': forms.Select(attrs={'class': 'form-control', 'placeholder': 'Tipo de fondo.', 'style': 'margin-top:10px'}),
             'descripcion': forms.Select(attrs={'class': 'form-control', 'placeholder': 'Ofrezca una descripcion.', 'style': 'margin-top:10px'}),
