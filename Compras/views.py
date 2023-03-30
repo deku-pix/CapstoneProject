@@ -24,6 +24,10 @@ def AddCompra(request):
             f = form.save(commit=False)
             f.usuario = usuario
             f.save()
+        else:
+            print('error')
+            print(form.errors)
+            
         
         mensaje = ("Se creo la compra") #mensaje para indicar que se cero la compra
         messages.success(request, mensaje)
